@@ -29,8 +29,7 @@
 
 *  Manipulação de strings com Python
 
-*  Desafios Iniciais Py - Unimed-BH
-	* Desafio de código	
+*  [Desafios Iniciais Py - Unimed-BH](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/Desafios%20Iniciais%20Py%20-%20Unimed-BH.ipynb)		
 
 *  Análise de dados com Python e Pandas
 	* Desafio de projeto
@@ -58,9 +57,7 @@
 
 *  Ampliando o conhecimento em POO com Python
 
-*  Desafios Intermediários Py - Unimed-BH
-	* Desafio de código
-	* [Desafios Intermediários Py - Unimed-BH](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/Desafios%20Intermedi%C3%A1rios%20Py%20-%20Unimed-BH.ipynb)
+*  [Desafios Intermediários Py - Unimed-BH](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/Desafios%20Intermedi%C3%A1rios%20Py%20-%20Unimed-BH.ipynb)
  
 *  Descomplicando a criação de pacotes de processamento de imagens em Python
 	* Desafio de projeto
