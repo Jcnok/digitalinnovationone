@@ -60,7 +60,7 @@
 
 *  Desafios Intermediários Py - Unimed-BH
 	* Desafio de código
-	* Desafios Intermediários Py - Unimed-BH
+	* [Desafios Intermediários Py - Unimed-BH](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/Desafios%20Intermedi%C3%A1rios%20Py%20-%20Unimed-BH.ipynb)
  
 *  Descomplicando a criação de pacotes de processamento de imagens em Python
 	* Desafio de projeto
