@@ -32,8 +32,8 @@
 *  [Desafios Iniciais Py - Unimed-BH](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/Desafios%20Iniciais%20Py%20-%20Unimed-BH.ipynb)		
 
 *  Análise de dados com Python e Pandas
-	* Desafio de projeto
-	* Análise de dados com Python e Pandas
+	* [Desafio de projeto](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/Desafio_An%C3%A1lise_de_dados.ipynb)
+	
 
 *  Trabalhando com Listas em Python
 
