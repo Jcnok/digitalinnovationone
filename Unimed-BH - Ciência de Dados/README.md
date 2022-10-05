@@ -67,7 +67,7 @@
 	* Desafio de projeto
 
 *  Criando modelos com Python e Machine Learning para prever a evolução do COVID-19 no Brasil
-	* Desafio de projeto
+	* [Desafio de projeto](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/Projeto_ML_Covid.ipynb)
 
 ## Bancos de Dados SQL e NoSQL-(17 atividades)
 
