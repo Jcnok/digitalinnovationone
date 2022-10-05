@@ -1,8 +1,8 @@
 # Bootcamp Unimed-BH Ciência de Dados:
 
-[pular para baixo](#local-mais-abaixo)
+[ir para o fim](#local-mais-abaixo)
 
-[teste](#ancora1)
+[](#ancora1)
 <a name="ancora"></a>
 ## Ementa do bootcamp.
 
@@ -86,10 +86,10 @@
 *  Modelo Relacionamento de Entidade Aprimorado com Banco de Dados
 
 *  Refinando um Projeto Conceitual de Banco de Dados – E-COMMERCE
-	* Desafio de projeto
+	* [Desafio de projeto](https://github.com/Jcnok/digitalinnovationone/tree/main/modulo_3)
 
 *  Construindo um Esquema Conceitual para Banco De dados
-	* Desafio de projeto
+	* [Desafio de projeto](https://github.com/Jcnok/digitalinnovationone/tree/main/modulo_3)
 
 *  Modelo Relacional e Mapeamento Relacional com Banco de Dados
 
