@@ -15,7 +15,7 @@
 * **[Desafio: Projeto Conceitual de Banco de Dados -  E-Commerce](https://github.com/Jcnok/digitalinnovationone/tree/main/modulo_3)**
 * **[Desafio: Projeto Conceitual de Banco de Dados - Oficina Mecânica](https://github.com/Jcnok/digitalinnovationone/tree/main/modulo_3)**
 
-## Ementa do bootcamp.
+## Ementa do bootcamp:
 
 * **43 cursos**
 * **11 desafios de projeto** 
