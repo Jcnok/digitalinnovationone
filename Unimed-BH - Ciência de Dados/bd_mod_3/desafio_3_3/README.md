@@ -1,5 +1,9 @@
 ## Projeto e-commerce
 
+### Diagrama EER - ecommerce.
+
+![img](https://github.com/Jcnok/digitalinnovationone/blob/main/images/modelo_ecommerce_EER.png?raw=true)
+
 ### Script SQL para criação do schema do BD
 
 * **Criar a tabela de cliente.**    
