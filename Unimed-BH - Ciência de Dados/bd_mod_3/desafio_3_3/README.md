@@ -2,107 +2,158 @@
 
 ### Script SQL para criação do schema do BD
 
-* **Criar a tabela de cliente.**
+* **Criar a tabela de cliente.**    
 
-CREATE TABLE clients(
-	idClient INT AUTO_INCREMENT PRIMARY KEY,
-    Fname VARCHAR(20),
-    Minit CHAR(3),
-    Lname VARCHAR(20),
-    CPF CHAR(11) NOT NULL,
-    Address VARCHAR(30),
-    CONSTRAINT unique_cpf_client UNIQUE(CPF)
-);
+
+```python
+
+'''CREATE TABLE clients(
+        idClient INT AUTO_INCREMENT PRIMARY KEY,
+        Fname VARCHAR(20),
+        Minit CHAR(3),
+        Lname VARCHAR(20),
+        CPF CHAR(11) NOT NULL,
+        Address VARCHAR(30),
+        CONSTRAINT unique_cpf_client UNIQUE(CPF)
+);'''
+```
+
 * **Criar a tabela produto.**
-CREATE TABLE products (
-    idProduct INT AUTO_INCREMENT PRIMARY KEY,
-    Pname VARCHAR(10) NOT NULL,
-    Classification_Kids BOOL DEFAULT FALSE,
-    Category ENUM('Eletrônico', 'Vestimenta', 'Brinquedos', 'Alimentos', 'Móveis') NOT NULL,
-    Avaliação FLOAT DEFAULT 0,
-    Size VARCHAR(10)
+
+
+```python
+'''CREATE TABLE products (
+        idProduct INT AUTO_INCREMENT PRIMARY KEY,
+        Pname VARCHAR(10) NOT NULL,
+        Classification_Kids BOOL DEFAULT FALSE,
+        Category ENUM('Eletrônico', 'Vestimenta', 'Brinquedos', 'Alimentos', 'Móveis') NOT NULL,
+        Avaliação FLOAT DEFAULT 0,
+        Size VARCHAR(10)
+);'''
+```
+
 * **Criar a tabela Pedido.**
-CREATE TABLE orders (
-    idOrder INT AUTO_INCREMENT PRIMARY KEY,
-    idOrderClient INT,
-    OrderStatus ENUM('Cancelado', 'Confirmado', 'Em processamento') DEFAULT 'Em Processamento',
-    OrderDescription VARCHAR(255),
-    SendValue FLOAT DEFAULT 10,
-    PaymentCash BOOL DEFAULT FALSE,
-    CONSTRAINT fk_orders_client FOREIGN KEY (idOrderClient)
-        REFERENCES clients (idClient)
-);
+
+
+```python
+''' TABLE orders (
+        idOrder INT AUTO_INCREMENT PRIMARY KEY,
+        idOrderClient INT,
+        OrderStatus ENUM('Cancelado', 'Confirmado', 'Em processamento') DEFAULT 'Em Processamento',
+        OrderDescription VARCHAR(255),
+        SendValue FLOAT DEFAULT 10,
+        PaymentCash BOOL DEFAULT FALSE,
+        CONSTRAINT fk_orders_client FOREIGN KEY (idOrderClient)
+            REFERENCES clients (idClient)
+);'''
+```
+
 * **Criar a tabela estoque.**
-CREATE TABLE productstorage (
-    idProdStorage INT AUTO_INCREMENT PRIMARY KEY,
-    StorageLocation VARCHAR(255),
-    Quantity INT DEFAULT 0
-);
+
+
+```python
+'''CREATE TABLE productstorage (
+        idProdStorage INT AUTO_INCREMENT PRIMARY KEY,
+        StorageLocation VARCHAR(255),
+        Quantity INT DEFAULT 0
+);'''
+```
+
 * **Criar a tabela fornecedor.**
-CREATE TABLE supplier (
-    idSupplier INT AUTO_INCREMENT PRIMARY KEY,
-    SocialName VARCHAR(255) NOT NULL,
-    CNPJ CHAR(15) NOT NULL,
-    Contact CHAR(11) NOT NULL,
-    CONSTRAINT unique_supplier UNIQUE (CNPJ)
-);
+
+
+```python
+'''CREATE TABLE supplier (
+        idSupplier INT AUTO_INCREMENT PRIMARY KEY,
+        SocialName VARCHAR(255) NOT NULL,
+        CNPJ CHAR(15) NOT NULL,
+        Contact CHAR(11) NOT NULL,
+        CONSTRAINT unique_supplier UNIQUE (CNPJ)
+);'''
+```
+
 * **Criar tabela vendedor.**
-CREATE TABLE seller (
-    idSeller INT AUTO_INCREMENT PRIMARY KEY,
-    SocialName VARCHAR(255) NOT NULL,
-    AbstName VARCHAR(255),
-    CNPJ CHAR(15),
-    CPF CHAR(11),
-    Location VARCHAR(255),
-    Contact CHAR(11) NOT NULL,
-    CONSTRAINT unique_cnpj_seller UNIQUE (CNPJ),
-    CONSTRAINT unique_cpf_seller UNIQUE (CPF)
-);
+
+
+```python
+'''CREATE TABLE seller (
+        idSeller INT AUTO_INCREMENT PRIMARY KEY,
+        SocialName VARCHAR(255) NOT NULL,
+        AbstName VARCHAR(255),
+        CNPJ CHAR(15),
+        CPF CHAR(11),
+        Location VARCHAR(255),
+        Contact CHAR(11) NOT NULL,
+        CONSTRAINT unique_cnpj_seller UNIQUE (CNPJ),
+        CONSTRAINT unique_cpf_seller UNIQUE (CPF)
+);'''
+```
+
 * **Criar a tabela produto/vendedor.**
-CREATE TABLE productseller (
-    idPseller INT,
-    idPproduct INT,
-    prodQuantity INT DEFAULT 1,
-    PRIMARY KEY (idPseller , idPproduct),
-    CONSTRAINT fk_product_seller FOREIGN KEY (idPseller)
-        REFERENCES seller (idSeller),
-    CONSTRAINT fk_product_product FOREIGN KEY (idPproduct)
-        REFERENCES products (idProduct)
-);
+
+
+```python
+'''CREATE TABLE productseller (
+        idPseller INT,
+        idPproduct INT,
+        prodQuantity INT DEFAULT 1,
+        PRIMARY KEY (idPseller , idPproduct),
+        CONSTRAINT fk_product_seller FOREIGN KEY (idPseller)
+            REFERENCES seller (idSeller),
+        CONSTRAINT fk_product_product FOREIGN KEY (idPproduct)
+            REFERENCES products (idProduct)
+);'''
+```
+
 * **Criar a tabela produto/pedido.**
-CREATE TABLE productorder (
-    idPOproduct INT,
-    idPOorder INT,
-    PoQuantity INT DEFAULT 1,
-    PoStatus ENUM('Disponível', 'Sem estoque') DEFAULT 'Disponível',
-    PRIMARY KEY (idPOproduct , idPOorder),
-    CONSTRAINT fk_productorder_seller FOREIGN KEY (idPOproduct)
-        REFERENCES products (idProduct),
-    CONSTRAINT fk_productorder_product FOREIGN KEY (idPOorder)
-        REFERENCES orders (idOrder)
-);
+
+
+```python
+'''CREATE TABLE productorder (
+        idPOproduct INT,
+        idPOorder INT,
+        PoQuantity INT DEFAULT 1,
+        PoStatus ENUM('Disponível', 'Sem estoque') DEFAULT 'Disponível',
+        PRIMARY KEY (idPOproduct , idPOorder),
+        CONSTRAINT fk_productorder_seller FOREIGN KEY (idPOproduct)
+            REFERENCES products (idProduct),
+        CONSTRAINT fk_productorder_product FOREIGN KEY (idPOorder)
+            REFERENCES orders (idOrder)
+);'''
+```
+
 * **Criar a tabela estoque/produto.**
-CREATE TABLE storagelocation (
-    idLproduct INT,
-    idLstorage INT,
-    location VARCHAR(255) NOT NULL,
-    PRIMARY KEY (idLproduct , idLstorage),
-    CONSTRAINT fk_productstorage_seller FOREIGN KEY (idLproduct)
-        REFERENCES products (idProduct),
-    CONSTRAINT fk_productstorage_product FOREIGN KEY (idLstorage)
-        REFERENCES productstorage (idProdStorage)
-);
+
+
+```python
+'''CREATE TABLE storagelocation (
+        idLproduct INT,
+        idLstorage INT,
+        location VARCHAR(255) NOT NULL,
+        PRIMARY KEY (idLproduct , idLstorage),
+        CONSTRAINT fk_productstorage_seller FOREIGN KEY (idLproduct)
+            REFERENCES products (idProduct),
+        CONSTRAINT fk_productstorage_product FOREIGN KEY (idLstorage)
+            REFERENCES productstorage (idProdStorage)
+);'''
+```
+
 * **Criar tabela produto/fornededor.**
-CREATE TABLE productsupplier (
-    idPsSupplier INT,
-    idPsProduct INT,
-    quantity INT NOT NULL,
-    PRIMARY KEY (idPsSupplier , idPsProduct),
-    CONSTRAINT fk_product_supplier_supplier FOREIGN KEY (idPsSupplier)
-        REFERENCES supplier (idSupplier),
-    CONSTRAINT fk_product_supplier_product FOREIGN KEY (idPsProduct)
-        REFERENCES products (idProduct)
-);
+
+
+```python
+'''CREATE TABLE productsupplier (
+        idPsSupplier INT,
+        idPsProduct INT,
+        quantity INT NOT NULL,
+        PRIMARY KEY (idPsSupplier , idPsProduct),
+        CONSTRAINT fk_product_supplier_supplier FOREIGN KEY (idPsSupplier)
+            REFERENCES supplier (idSupplier),
+        CONSTRAINT fk_product_supplier_product FOREIGN KEY (idPsProduct)
+            REFERENCES products (idProduct)
+);'''
+```
+
 ### Script para Inserir Registros no BD.
 
 * **Os arquivos de insersão estão localizados na pasta /Datasets do Github.**
@@ -111,115 +162,165 @@ CREATE TABLE productsupplier (
 
 
 * **Persistindo dados de um arquivo csv na tabela Clients - Clientes.**
-load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\cliente.csv'
-into table clients
-fields terminated by ';'
-enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(Fname,Minit,Lname,CPF,Address);
+
+
+```python
+'''load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\cliente.csv'
+        into table clients
+        fields terminated by ';'
+        enclosed by '"'
+        lines terminated by '\n'
+        ignore 1 rows
+        (Fname,Minit,Lname,CPF,Address);
 
 -- conferindo se os dados foram persistidos --
-SELECT * FROM clients;
+SELECT * FROM clients;'''
+```
+
 * **Persistindo dados de um arquivo csv na tabela products - Produtos.**
-load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\produtos.csv'
-into table products
-fields terminated by ';'
-enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(Pname,Classification_kids,Category,Avaliação,Size);
+
+
+```python
+'''load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\produtos.csv'
+        into table products
+        fields terminated by ';'
+        enclosed by '"'
+        lines terminated by '\n'
+        ignore 1 rows
+        (Pname,Classification_kids,Category,Avaliação,Size);
 
 -- Verficando se os dados foram persistidos. --
-SELECT * FROM products;
+SELECT * FROM products;'''
+```
+
 * **Persistindo dados de um arquivo csv na tabela orders - Pedidos.**
-load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\orders.csv'
-into table orders
-fields terminated by ';'
-enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(idOrderClient,OrderStatus,OrderDescription,SendValue,PaymentCash);
+
+
+```python
+'''load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\orders.csv'
+        into table orders
+        fields terminated by ';'
+        enclosed by '"'
+        lines terminated by '\n'
+        ignore 1 rows
+        (idOrderClient,OrderStatus,OrderDescription,SendValue,PaymentCash);
 
 -- Verficando se os dados foram persistidos. --
-SELECT * FROM orders; 
+SELECT * FROM orders; '''
+```
+
 * **Persistindo dados de um arquivo csv na tabela productstorage - Estoque.**
-load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\productStorage.csv'
-into table productstorage
-fields terminated by ';'
-enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(StorageLocation,Quantity);
+
+
+```python
+'''load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\productStorage.csv'
+        into table productstorage
+        fields terminated by ';'
+        enclosed by '"'
+        lines terminated by '\n'
+        ignore 1 rows
+        (StorageLocation,Quantity);
 
 -- Verficando se os dados foram persistidos. --
-SELECT * FROM productstorage; 
+SELECT * FROM productstorage; '''
+```
+
 * **Persistindo dados de um arquivo csv na tabela supplier - Fornecedores.**
-load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\supplier.csv'
-into table supplier
-fields terminated by ';'
-enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(SocialName,CNPJ,Contact);
+
+
+```python
+'''load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\supplier.csv'
+        into table supplier
+        fields terminated by ';'
+        enclosed by '"'
+        lines terminated by '\n'
+        ignore 1 rows
+        (SocialName,CNPJ,Contact);
 
 -- Verficando se os dados foram persistidos. --
-SELECT * FROM supplier; 
+SELECT * FROM supplier; '''
+```
+
 * **Persistindo dados de um arquivo csv na tabela seller - Vendedores.**
-load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\seller.csv'
-into table seller
-fields terminated by ';'
-enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(SocialName,AbstName,CNPJ,CPF,Location,Contact);
+
+
+```python
+'''load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\seller.csv'
+        into table seller
+        fields terminated by ';'
+        enclosed by '"'
+        lines terminated by '\n'
+        ignore 1 rows
+        (SocialName,AbstName,CNPJ,CPF,Location,Contact);
 
 -- Verficando se os dados foram persistidos. --
-SELECT * FROM seller; 
+SELECT * FROM seller; '''
+```
+
 * **Persistindo dados de um arquivo csv na tabela  productseller - produto/vendedor.**
-load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\productseller.csv'
-into table productseller
-fields terminated by ';'
-enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(idPseller,idPproduct,prodQuantity);
+
+
+```python
+'''load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\productseller.csv'
+        into table productseller
+        fields terminated by ';'
+        enclosed by '"'
+        lines terminated by '\n'
+        ignore 1 rows
+        (idPseller,idPproduct,prodQuantity);
 
 -- Verficando se os dados foram persistidos. --
-SELECT * FROM productseller; 
+SELECT * FROM productseller; '''
+```
+
 * **Persistindo dados de um arquivo csv na tabela productorder - produto/pedido.**
-load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\productorder.csv'
-into table productorder
-fields terminated by ';'
-enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(idPOproduct,idPOorder,PoQuantity);
+
+
+```python
+'''load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\productorder.csv'
+        into table productorder
+        fields terminated by ';'
+        enclosed by '"'
+        lines terminated by '\n'
+        ignore 1 rows
+        (idPOproduct,idPOorder,PoQuantity);
 
 -- Verficando se os dados foram persistidos. --
-SELECT * FROM productorder; 
+SELECT * FROM productorder; '''
+```
+
 * **Persistindo dados de um arquivo csv na tabela storagelocation - estoque/produto.**
-load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\storagelocation.csv'
-into table storagelocation
-fields terminated by ';'
-enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(idLproduct,idLstorage,location);
+
+
+```python
+'''load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\storagelocation.csv'
+        into table storagelocation
+        fields terminated by ';'
+        enclosed by '"'
+        lines terminated by '\n'
+        ignore 1 rows
+        (idLproduct,idLstorage,location);
 
 -- Verficando se os dados foram persistidos. --
-SELECT * FROM storagelocation;
+SELECT * FROM storagelocation;'''
+```
+
 * **Persistindo dados de um arquivo csv na tabela productsupplier - produto/forncecedor.**
-load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\productsupplier.csv'
-into table productsupplier
-fields terminated by ';'
-enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(idPsSupplier,idPsProduct,quantity);
+
+
+```python
+'''load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\productsupplier.csv'
+        into table productsupplier
+        fields terminated by ';'
+        enclosed by '"'
+        lines terminated by '\n'
+        ignore 1 rows
+        (idPsSupplier,idPsProduct,quantity);
 
 -- Verficando se os dados foram persistidos. --
-SELECT * FROM productsupplier; 
+SELECT * FROM productsupplier; '''
+```
+
 ### Script para consultas(Queries).
 
 
