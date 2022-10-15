@@ -6,7 +6,7 @@
 
 ### Script SQL para criação do schema do BD
 
-* **Criar a tabela de cliente.**    
+* **Criar a tabela de clientes.**    
 
 
 ```python
