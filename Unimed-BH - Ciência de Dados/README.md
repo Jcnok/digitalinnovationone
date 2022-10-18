@@ -2,7 +2,7 @@
 
 [ir para o fim](#local-mais-abaixo)
 
-[](#ancora1)
+[](#ancora)
 
 ## Ementa do bootcamp.
 
@@ -140,4 +140,5 @@
 ## Local mais abaixo
 ## ok
 
-[voltar](#ancora1)
+<a name="ancora"></a>
+[voltar](#ancora)
