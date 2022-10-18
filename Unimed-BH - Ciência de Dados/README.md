@@ -3,7 +3,7 @@
 [ir para o fim](#local-mais-abaixo)
 
 [](#ancora1)
-<a name="ancora"></a>
+
 ## Ementa do bootcamp.
 
 * **43 cursos**
@@ -139,5 +139,5 @@
 	* Desafio de projeto
 ## Local mais abaixo
 ## ok
-<a name="ancora1"></a>
+
 [voltar](#ancora)
