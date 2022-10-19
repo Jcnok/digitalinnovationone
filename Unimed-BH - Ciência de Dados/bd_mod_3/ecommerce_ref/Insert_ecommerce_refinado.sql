@@ -13,9 +13,9 @@ INSERT INTO `Documentos` (`DocNum`, `fk_idClient`) VALUES ('36985214785', '2');
 INSERT INTO `Documentos` (`DocNum`, `fk_idClient`) VALUES ('35795174123', '3');
 
 -- 3 Inserindo registros na tabela cartão de crédito --
-INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Julio C. Okuda', '123456789321456', 'Visa', '10-01-25', '1');
-INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Solange M Okita', '3579514852', 'Master', '01-02-24', '2');
-INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Solange M Okita', '3579518888', 'Visa', '01-05-25', '2');
+INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Julio C. Okuda', '123456789321456', 'Visa', '25-10-01', '1');
+INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Solange M Okita', '3579514852', 'Master', '24-01-02', '2');
+INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Solange M Okita', '3579518888', 'Visa', '25-01-05', '2');
 
 -- 4 Inserindo registros na tabela formas de pagamentos --
 INSERT INTO `formas_pagamentos` (`PayType`) VALUES ('Credito');
@@ -31,7 +31,7 @@ INSERT INTO `fornecedores` (`SocialName`, `CNPJ`, `Contact`) VALUES ('Techbyte',
 INSERT INTO `produtos` (`Name`, `ClassKids`, `Category`, `Size`, `Rating`, `Price`) VALUES ('Fraldas', '1', 'Vestimenta', 'P', '5', '95');
 INSERT INTO `produtos` (`Name`, `ClassKids`, `Category`, `Size`, `Rating`, `Price`) VALUES ('Monitor', '0', 'Eletrônico', '19"', '4', '2000');
 INSERT INTO `produtos` (`Name`, `ClassKids`, `Category`, `Size`, `Rating`, `Price`) VALUES ('Sofá', '0', 'Móveis', '3LUG', '3', '1400');
-INSERT INTO `produtos` (`Name`, `ClassKids`, `Category`, `Size`, `Rating`, `Price`) VALUES ('Arroz', '0', 'Alimentos', '5kg', '4', '20');
+INSERT INTO `produtos` (`Name`, `ClassKids`, `Category`, `Size`, `Rating`, `Price`) VALUES ('Cesta_Basica', '0', 'Alimentos', '1 Fardo', '4', '399');
 
 -- 7 Inserindo registros na tabela fornecedores_produtos --
 INSERT INTO `fornecedores_produtos` (`fk_idSupplier`, `fk_idProduct`, `Qtd`) VALUES ('1', '1', '100');
@@ -64,17 +64,17 @@ INSERT INTO `vendedores` (`SocialName`, `AbstName`, `CNPJ`, `CPF`, `Local`, `Con
 -- 11 Inserindo registros na tabela Entregas -- 
 INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('1122334455', 'Aguardando', '20');
 INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('78965412', 'Enviado', '35');
-INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('123987456', 'Em trânsito', '50');
+INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('123987456', 'Em trânsito', '30');
 INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('852369741', 'Saiu para entrega', '28');
 INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('123654852', 'Entregue', '25');
 
 -- 12 Inserindo registros na tabela de Pedidos --
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('2', '1', '1', '2', 'Confirmado', 'utilizou cartão master', '9590', '15-10-22', '123654789');
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '2', '3', 'Confirmado', 'Pagou com Pix a vista', '20', '10-10-22', '13131313');
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('3', '3', '2', 'Em Processamento', 'Aguardando o boleto ser processado', '3420', '14-10-22', '24242424');
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '4', '1', '1', 'Cancelado', 'Cancelou o pedido-cartão', '1400', '14-10-22', '12121212');
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('2', '1', '1', '3', 'Cancelado', 'utilizou cartão visa', '2000', '14-10-22', '12365478');
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '1', '1', '3', 'Confirmado', 'cartão', '20', '10-10-22', '123654');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('2', '2', '1', '2', 'Confirmado', 'utilizou cartão master', '9590', '22-10-15', '123654789');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '4', '3', 'Confirmado', 'Pagou com Pix a vista', '399', '22-10-10', '13131313');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('3', '1', '2', 'Em Processamento', 'Aguardando o boleto ser processado', '3420', '22-10-14', '24242424');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '1', '1', '1', 'Cancelado', 'Cancelou o pedido-cartão', '1400', '22-10-14', '12121212');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('2', '1', '1', '3', 'Cancelado', 'utilizou cartão visa', '2000', '22-10-14', '12365478');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '3', '1', '3', 'Confirmado', 'cartão', '399', '22-10-10', '123654');
 
 -- 13 Inserindo registros na tabela pedidos_produtos --
 INSERT INTO `pedidos_produtos` (`fk_idProduct`, `fk_idOrder`, `Qtd`, `Status`) VALUES ('1', '1', '2', 'Disponível');
@@ -92,5 +92,5 @@ INSERT INTO `pedidos_produtos` (`fk_idProduct`, `fk_idOrder`, `Qtd`, `Status`) V
 INSERT INTO `produtos_terceiros` (`fk_idSeller`, `fk_idProduct`, `Qtd`) VALUES ('1', '2', '10');
 INSERT INTO `produtos_terceiros` (`fk_idSeller`, `fk_idProduct`, `Qtd`) VALUES ('2', '3', '5');
 INSERT INTO `produtos_terceiros` (`fk_idSeller`, `fk_idProduct`, `Qtd`) VALUES ('3', '4', '15');
-INSERT INTO `produtos_terceiros` (`fk_idSeller`, `fk_idProduct`, `Qtd`) VALUES ('4', '1', '100');
+INSERT INTO `produtos_terceiros` (`fk_idSeller`, `fk_idProduct`, `Qtd`) VALUES ('4', '1', '50');
 
