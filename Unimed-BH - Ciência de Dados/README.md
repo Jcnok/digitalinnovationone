@@ -101,8 +101,8 @@
 
 *  Agrupando Registros e Tabelas com Join Statement
 
-*  Construindo seu Primeiro Projeto Lógico de Banco de Dados
-	* Desafio de projeto
+*  [Construindo seu Primeiro Projeto Lógico de Banco de Dados](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/desafio_3_3)
+	* [Desafio de projeto](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/ecommerce_ref)
 
 *  Construa um Projeto Lógico de Banco de Dados do Zero
 	* Desafio de projeto
