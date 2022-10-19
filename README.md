@@ -14,7 +14,8 @@
 ### Módulo 3 - Banco de Dados SQL e NoSQL
 * **[Desafio: Projeto Conceitual de Banco de Dados -  E-Commerce](https://github.com/Jcnok/digitalinnovationone/tree/main/modulo_3)**
 * **[Desafio: Projeto Conceitual de Banco de Dados - Oficina Mecânica](https://github.com/Jcnok/digitalinnovationone/tree/main/modulo_3)**
-
+* **[Desafio: Construindo seu Primeiro Projeto Lógico de Banco de Dados -  E-Commerce](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/desafio_3_3)
+* **[Desafio: Construindo seu Primeiro Projeto Lógico de Banco de Dados -  E-Commerce Refinado](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/ecommerce_ref)
 ## Ementa do bootcamp:
 
 * **43 cursos**
