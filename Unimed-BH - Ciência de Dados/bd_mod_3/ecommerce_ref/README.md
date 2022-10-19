@@ -5,7 +5,7 @@
 * **Este projeto faz parte da trilha “Unimed-BH-Ciência de dados” disponibilizada pela [DIO](https://www.dio.me/).**
 * **O Desafio consiste na modelagem de um bando de dados para o cenário de um e-commerce, script sql para criação do schema, persistência e realização de testes utilizando queries para responder determinadas perguntas que serão elaboradas ao final do desafio.**
 * **Ao navegar pelo índice, é possível visualizar todo o passo-à-passo realizado durante a elaboração do projeto.**
-* **Todos os scripts estão disponibilizados neste repositório, para um eventual estudo ou replicação, vale ressaltar que intuito do conteúdo é apenas didático, a fim de demonstrar todo o conhecimento adquirido durante o aprendizado, ou seja, o conteúdo aqui disponibilizado não abrange um banco de dados para um cenário real.**
+* **Todos os scripts estão disponibilizados neste repositório, para um eventual estudo ou replicação, vale ressaltar que intuito do conteúdo é apenas didático, com o propósito de demonstrar todo o conhecimento adquirido durante o aprendizado, ou seja, o conteúdo aqui disponibilizado apesar de similar, não abrange um banco de dados para um cenário real.**
 
 
 <a name="ancora"></a>
@@ -848,6 +848,8 @@ pd.read_sql(query,con)
 
 
 
+* *Neste caso não existe nehum vendedor que também é fornecedor*.
+
 ### 3-Relação de produtos fornecedores e estoques;
 <a id="ancora5.5"></a>
 [voltar](#ancora)
@@ -953,11 +955,11 @@ pd.read_sql(query,con)
       <td>Nihontech</td>
       <td>123654985632569</td>
       <td>119849849</td>
-      <td>Arroz</td>
+      <td>Cesta_Basica</td>
       <td>0</td>
       <td>Alimentos</td>
-      <td>5kg</td>
-      <td>20.0</td>
+      <td>1 fardo</td>
+      <td>399.0</td>
       <td>2000</td>
       <td>Takao K.</td>
       <td>Curitiba - PR</td>
@@ -983,6 +985,10 @@ pd.read_sql(query,con)
 </div>
 
 
+
+* *Temos apenas 2 fornecedores onde aparentemente Nihontech trabalha com as categorias de Vestimenta, Móveis e Alimentos*.
+* *Enquanto que Techbye trabalha com a parte de Eletrônicos*.
+* *Os estoques possuem endereços distintos, vestimenta no RJ, Móveis na BA, Alimentos no PR e Eletrônicos em SP*.
 
 ### 4-Relação de nomes dos fornecedores e nomes dos produtos;
 <a id="ancora5.6"></a>
@@ -1078,12 +1084,12 @@ pd.read_sql(query,con)
       <td>123654985632569</td>
       <td>119849849</td>
       <td>2000</td>
-      <td>Arroz</td>
+      <td>Cesta_Basica</td>
       <td>0</td>
       <td>Alimentos</td>
-      <td>5kg</td>
+      <td>1 fardo</td>
       <td>4.0</td>
-      <td>20.0</td>
+      <td>399.0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1201,6 +1207,8 @@ pd.read_sql(query,con)
 </div>
 
 
+
+* *Foram realizados 3 pedidos porém dois estão com status Cancelado*.
 
 ### 6-Qual o Nome, CNPJ/CPF, quantidade vendida, nome do produto, categoria, tamanho, valor unitario, valor total e a quantidade em estoque já descontado das vendas dos terceiros.
 <a id="ancora5.8"></a>
@@ -1323,6 +1331,8 @@ pd.read_sql(query,con)
 </div>
 
 
+
+* *Temos 2 vendedores PJ e 2 PF, esse setor certamente possui melhorias, pois poderíamos criar uma tabela para os PJs e PFs separadamente ou criar um método para o cliente selecionar o tipo de documento etc...*
 
 ### 7-Informe todos os pedidos, a forma de pagamento, codigo do rastreio, o status da compra e do envio seguido dos seus respectivos valores ordenados pela data do pedido.
 <a id="ancora5.9"></a>
@@ -1557,6 +1567,8 @@ pd.read_sql(query,con)
 
 
 
+* *As informações de quantidade são do estoque inicial, não foram subtraídas dos pedidos e dos vendedores terceirizados*.
+
 ### 9-Informe todos os clientes que possuem cadastro com CPF utilizando a função if;
 <a id="ancora5.11"></a>
 [voltar](#ancora)
@@ -1625,6 +1637,8 @@ pd.read_sql(query,con)
 
 
 
+* *Existem formas mais simples para realizar o filtro, achei interessante a função IF apenas para fins didatico.*
+
 ### 10-informe o total de pedidos por tipo de pagamento;
 <a id="ancora5.12"></a>
 [voltar](#ancora)
@@ -1690,6 +1704,8 @@ pd.read_sql(query,con)
 </div>
 
 
+
+* *Tivemos 4 pedidos com cartão de crédito, 1 por boleto e 1 por Pix.*
 
 ### 11-Quais produtos o cliente de ordem =1 comprou?
 <a id="ancora5.13"></a>
@@ -1794,4 +1810,4 @@ display(pd.read_sql(query,con));
 </div>
 
 
-
+* *Assim podemos confirmar que o cliente pode comprar mais de um produto em um único pedido.*
