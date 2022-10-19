@@ -64,13 +64,25 @@
 <a id="ancora1.2"></a>
 [voltar](#ancora)
 
+* Os produtos são vendidos por uma única plataforma online. Contudo, estes podem ter vendedores distintos (terceiros).
+* Cada produto possui um fornecedor.
+* Um ou mais produtos podem compor um pedido.
+
 #### Clientes
 <a id="ancora1.3"></a>
 [voltar](#ancora)
 
+* O cliente pode se cadastrar no site com seu CPF ou CNPJ.
+* O Endereço do cliente irá determinar o valor do frete.
+* Um cliente pode comprar mais de um pedido. Este tem um período de carência para devolução do produto.
+
 #### Pedidos
 <a id="ancora1.4"></a>
 [voltar](#ancora)
+
+* Os pedidos são criados por clientes e possuem informações de compra, endereço e status da entrega.
+* Um produto ou mais compoem o pedido.
+* O pedido pode ser cancelado.
 
 ### Diagrama EER - ecommerce.
 <a id="ancora2"></a>
@@ -1194,8 +1206,119 @@ print("Uma linha foi inserida, ID:", meucursor.lastrowid)
 ```python
 query ="SELECT CONCAT(Fname, ' ',Lname) AS Cliente, idOrder AS Request,\
 orderStatus AS Status FROM clients c, orders o WHERE c.idClient = idOrderClient;"
-pd.read_sql(query,con);
+pd.read_sql(query,con)
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cliente</th>
+      <th>Request</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Roberto Notario</td>
+      <td>1</td>
+      <td>Cancelado</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Solange Okita</td>
+      <td>2</td>
+      <td>Confirmado</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Laura Okuda</td>
+      <td>3</td>
+      <td>Em processamento</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Lucas  Okuda</td>
+      <td>4</td>
+      <td>Confirmado</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Luana Okuda</td>
+      <td>5</td>
+      <td>Cancelado</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Jeferson Silva</td>
+      <td>6</td>
+      <td>Confirmado</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Murilo Costa</td>
+      <td>7</td>
+      <td>Em processamento</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Maria Silva</td>
+      <td>8</td>
+      <td>Cancelado</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Sandar Marques</td>
+      <td>9</td>
+      <td>Em processamento</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Osvaldo Cruz</td>
+      <td>16</td>
+      <td>Em processamento</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Osvaldo Cruz</td>
+      <td>17</td>
+      <td>Cancelado</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Osvaldo Cruz</td>
+      <td>18</td>
+      <td>Cancelado</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Osvaldo Cruz</td>
+      <td>19</td>
+      <td>Cancelado</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 #### **8) - Altere o status da ordem do cliente Osvaldo que possui a requisição núm:17 e 18 para 'Cancelado'.**
 <a id="ancora5.9"></a>
