@@ -1,12 +1,90 @@
 ## Projeto e-commerce
 
+![img](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/desafio_3_3/ecommerce.jpg?raw=true)
+
+* **Este projeto faz parte da trilha “Unimed-BH-Ciência de dados” disponibilizada pela [DIO](https://www.dio.me/).**
+* **Esse projeto foi elaborado de acordo com as aulas do módulo de Banco de Dados e consiste na modelagem ER, script sql para criação do schema, persistência e realização de testes utilizando queries.**
+* **Ao navegar pelo índice, é possível visualizar todo o passo-à-passo realizado durante o acompanhamento das aulas.**
+
+<a name="ancora"></a>
+# Índice
+* [Contexto](#ancora1)
+    * [Produtos](#ancora1.1)
+    * [Clientes](#ancora1.2)
+    * [Pedidos](#ancora1.3)
+        
+* [Diagrama EER - ecommerce](#ancora2)
+
+* [Script SQL para criação do BD.](#ancora3)
+    * [Criar a tabela de cliente.](#ancora3.1)
+    * [Criar a tabela produto.](#ancora3.2)
+    * [Criar a tabela Pedido.](#ancora3.3)
+    * [Criar a tabela estoque.](#ancora3.4)
+    * [Criar a tabela fornecedor.](#ancora3.5)
+    * [Criar tabela vendedor.](#ancora3.6)
+    * [Criar a tabela produto/vendedor.](#ancora3.7)
+    * [Criar a tabela produto/pedido.](#ancora3.8)
+    * [Criar a tabela estoque/produto.](#ancora3.9)
+    * [Criar tabela produto/fornecedor.](#ancora3.10)
+       
+        
+* [Script para Inserir Registros no BD.](#ancora4)
+    * [Persistindo dados de um arquivo csv na tabela Clients - Clientes.](#ancora4.2)
+    * [Persistindo dados de um arquivo csv na tabela products - Produtos.](#ancora4.3)
+    * [Persistindo dados de um arquivo csv na tabela orders - Pedidos.](#ancora4.4)
+    * [Persistindo dados de um arquivo csv na tabela productstorage - Estoque.](#ancora4.5)
+    * [Persistindo dados de um arquivo csv na tabela supplier - Fornecedores.](#ancora4.6)
+    * [Persistindo dados de um arquivo csv na tabela seller - Vendedores.](#ancora4.7)
+    * [Persistindo dados de um arquivo csv na tabela  productseller - produto/vendedor.](#ancora4.8)
+    * [Persistindo dados de um arquivo csv na tabela productorder - produto/pedido.](#ancora4.9)
+    * [Persistindo dados de um arquivo csv na tabela storagelocation - estoque/produto.](#ancora4.10)
+    * [Persistindo dados de um arquivo csv na tabela productsupplier - produto/forncecedor.](#ancora4.11)
+       
+    
+* [Script para consultas(Queries)](#ancora5)
+    * [Realizando a conexão com o Banco de Dados.](#ancora5.1)
+    * [1-Exiba a tabela clients.](#ancora5.2)
+    * [2-Informe a quantidade de clientes da tabela 'clients'.](#ancora5.3)
+    * [3-Exibir todos os clientes que possuem um pedido.](#ancora5.4)
+    * [4-Exibir o nome, sobrenome, id e status da ordem dos clientes que possuem alguma pedido.](#ancora5.5)
+    * [5-Exibir o nome e sobrenome concatenado, a id e o status da ordem.](#ancora5.6)
+    * [6-Inserir a ordem do cliente Osvaldo Cruz com id 11, com status da ordem em default, descrição 'site', sendvalue null e paymentcash como 1.](#ancora5.7)
+    * [7-Confira se a ordem do cliente Osvaldo foi inserida.](#ancora5.8)
+    * [8-Altere o status da ordem do cliente Osvaldo que possui a requisição núm:17 e 18 para 'Cancelado'.](#ancora5.9)
+    * [9-Confira se a ordem do cliente Osvaldo foi alterada conforme solicitado.](#ancora5.10)
+    * [10-Informe a quantidade de pedidos por clientes.](#ancora5.11)
+    * [11-Informe a quantidade de ordens com status cancelado por clientes ordenado por nome de forma descentende.](#ancora5.12)
+    * [12-Informe a quantidade de produtos por categoria e por localização com avaliação maior ou igual a 4 ordenado por quantidade descendente.](#ancora5.13)    
+
+### Contexto.
+<a id="ancora1.1"></a>
+[voltar](#ancora).
+
+#### Produtos
+<a id="ancora1.2"></a>
+[voltar](#ancora)
+
+#### Clientes
+<a id="ancora1.3"></a>
+[voltar](#ancora)
+
+#### Pedidos
+<a id="ancora1.4"></a>
+[voltar](#ancora)
+
 ### Diagrama EER - ecommerce.
+<a id="ancora2"></a>
+[voltar](#ancora).
 
 ![img](https://github.com/Jcnok/digitalinnovationone/blob/main/images/modelo_ecommerce_EER.png?raw=true)
 
-### Script SQL para criação do schema do BD
+### Script SQL para criação do BD.
+<a id="ancora3"></a>
+[voltar](#ancora).
 
-* **Criar a tabela de clientes.**    
+####  **Criar a tabela de cliente.**  
+<a id="ancora3.1"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -22,7 +100,9 @@
 );'''
 ```
 
-* **Criar a tabela produto.**
+####  **Criar a tabela produto.**
+<a id="ancora3.2"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -36,7 +116,9 @@
 );'''
 ```
 
-* **Criar a tabela Pedido.**
+####  **Criar a tabela Pedido.**
+<a id="ancora3.3"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -52,7 +134,9 @@
 );'''
 ```
 
-* **Criar a tabela estoque.**
+####  **Criar a tabela estoque.**
+<a id="ancora3.4"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -63,7 +147,9 @@
 );'''
 ```
 
-* **Criar a tabela fornecedor.**
+####  **Criar a tabela fornecedor.**
+<a id="ancora3.5"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -76,7 +162,9 @@
 );'''
 ```
 
-* **Criar tabela vendedor.**
+####  **Criar tabela vendedor.**
+<a id="ancora3.6"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -93,7 +181,9 @@
 );'''
 ```
 
-* **Criar a tabela produto/vendedor.**
+####  **Criar a tabela produto/vendedor.**
+<a id="ancora3.7"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -109,7 +199,9 @@
 );'''
 ```
 
-* **Criar a tabela produto/pedido.**
+####  **Criar a tabela produto/pedido.**
+<a id="ancora3.8"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -126,7 +218,9 @@
 );'''
 ```
 
-* **Criar a tabela estoque/produto.**
+####  **Criar a tabela estoque/produto.**
+<a id="ancora3.9"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -142,7 +236,9 @@
 );'''
 ```
 
-* **Criar tabela produto/fornededor.**
+####  **Criar tabela produto/fornecedor.**
+<a id="ancora3.10"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -159,13 +255,18 @@
 ```
 
 ### Script para Inserir Registros no BD.
+<a id="ancora4"></a>
+[voltar](#ancora).
 
-* **Os arquivos de insersão estão localizados na pasta /Datasets do Github.**
+* **Todos os Scripts estão disponíveis no repositório.**
+* **Foram utilizados os softwares: Workbench para modelagem e MySQL para o bando de dados.**
 * **Os arquivos foram salvos na pasta 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\' do Sistema, pois está possui as devidas permissões por padrão.**
 * **Para localizar o caminho da pasta no sistema utilize o comando: SELECT @@global.secure_file_priv;**
 
 
-* **Persistindo dados de um arquivo csv na tabela Clients - Clientes.**
+#### **Persistindo dados de um arquivo csv na tabela Clients - Clientes.**
+<a id="ancora4.2"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -181,7 +282,9 @@
 SELECT * FROM clients;'''
 ```
 
-* **Persistindo dados de um arquivo csv na tabela products - Produtos.**
+#### **Persistindo dados de um arquivo csv na tabela products - Produtos.**
+<a id="ancora4.3"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -197,7 +300,9 @@ SELECT * FROM clients;'''
 SELECT * FROM products;'''
 ```
 
-* **Persistindo dados de um arquivo csv na tabela orders - Pedidos.**
+#### **Persistindo dados de um arquivo csv na tabela orders - Pedidos.**
+<a id="ancora4.4"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -213,7 +318,9 @@ SELECT * FROM products;'''
 SELECT * FROM orders; '''
 ```
 
-* **Persistindo dados de um arquivo csv na tabela productstorage - Estoque.**
+#### **Persistindo dados de um arquivo csv na tabela productstorage - Estoque.**
+<a id="ancora4.5"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -229,7 +336,9 @@ SELECT * FROM orders; '''
 SELECT * FROM productstorage; '''
 ```
 
-* **Persistindo dados de um arquivo csv na tabela supplier - Fornecedores.**
+#### **Persistindo dados de um arquivo csv na tabela supplier - Fornecedores.**
+<a id="ancora4.6"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -245,7 +354,9 @@ SELECT * FROM productstorage; '''
 SELECT * FROM supplier; '''
 ```
 
-* **Persistindo dados de um arquivo csv na tabela seller - Vendedores.**
+#### **Persistindo dados de um arquivo csv na tabela seller - Vendedores.**
+<a id="ancora4.7"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -261,7 +372,9 @@ SELECT * FROM supplier; '''
 SELECT * FROM seller; '''
 ```
 
-* **Persistindo dados de um arquivo csv na tabela  productseller - produto/vendedor.**
+#### **Persistindo dados de um arquivo csv na tabela  productseller - produto/vendedor.**
+<a id="ancora4.8"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -277,7 +390,9 @@ SELECT * FROM seller; '''
 SELECT * FROM productseller; '''
 ```
 
-* **Persistindo dados de um arquivo csv na tabela productorder - produto/pedido.**
+#### **Persistindo dados de um arquivo csv na tabela productorder - produto/pedido.**
+<a id="ancora4.9"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -293,7 +408,9 @@ SELECT * FROM productseller; '''
 SELECT * FROM productorder; '''
 ```
 
-* **Persistindo dados de um arquivo csv na tabela storagelocation - estoque/produto.**
+#### **Persistindo dados de um arquivo csv na tabela storagelocation - estoque/produto.**
+<a id="ancora4.10"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -309,7 +426,9 @@ SELECT * FROM productorder; '''
 SELECT * FROM storagelocation;'''
 ```
 
-* **Persistindo dados de um arquivo csv na tabela productsupplier - produto/forncecedor.**
+#### **Persistindo dados de um arquivo csv na tabela productsupplier - produto/forncecedor.**
+<a id="ancora4.11"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -326,6 +445,12 @@ SELECT * FROM productsupplier; '''
 ```
 
 ### Script para consultas(Queries).
+<a id="ancora5"></a>
+[voltar](#ancora).
+
+#### **Realizando a conexão com o Banco de Dados.**
+<a id="ancora5.1"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -339,7 +464,6 @@ warnings.filterwarnings('ignore')
 
 ```python
 # Testando a conexão, nesse caso crieu um usuário sem senha para teste.
-import mysql.connector
 con = mysql.connector.connect(host='localhost',database='ecommerce',user='julio',password='')
 if con.is_connected():
     db_info = con.get_server_info()
@@ -362,6 +486,7 @@ if con.is_connected():
 
 ```python
 # Exibindo as tabelas do banco de dados.
+con = mysql.connector.connect(host='localhost',database='ecommerce',user='julio',password='')
 cursor = con.cursor()
 cursor.execute('SHOW TABLES')
 for i in cursor:
@@ -404,7 +529,9 @@ for i in result:
     (11, 'Osvaldo', 'N', 'Cruz', '86235714569', 'SP\r')
     
 
-* **1) - Exiba a tabela clients.**
+#### **1) - Exiba a tabela clients.**
+<a id="ancora5.2"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -547,7 +674,9 @@ pd.read_sql('SELECT * FROM clients',con=con)
 
 
 
-* **2) - Informe a quantidade de clientes da tabela 'clients'.**
+#### **2) - Informe a quantidade de clientes da tabela 'clients'.**
+<a id="ancora5.3"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -590,7 +719,9 @@ pd.read_sql(query,con)
 
 
 
-* **3) - Exibir todos os clientes que possuem um pedido.**
+#### **3) - Exibir todos os clientes que possuem um pedido.**
+<a id="ancora5.4"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -805,7 +936,9 @@ pd.read_sql(query,con)
 
 
 
-* **4) - Exibir o nome, sobrenome, id e status da ordem dos clientes que possuem alguma pedido.**
+#### **4) - Exibir o nome, sobrenome, id e status da ordem dos clientes que possuem alguma pedido.**
+<a id="ancora5.5"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -924,7 +1057,9 @@ pd.read_sql(query,con)
 
 
 
-* **5) - Exibir o nome e sobrenome concatenado, a id e o status da ordem.**
+#### **5) - Exibir o nome e sobrenome concatenado, a id e o status da ordem.**
+<a id="ancora5.6"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -1033,7 +1168,9 @@ pd.read_sql(query,con)
 
 
 
-* **6) - Inserir a ordem do cliente Osvaldo Cruz com id 11, com status da ordem em default, descrição 'site', sendvalue null e paymentcash como 1.**
+#### **6) - Inserir a ordem do cliente Osvaldo Cruz com id 11, com status da ordem em default, descrição 'site', sendvalue null e paymentcash como 1.**
+<a id="ancora5.7"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -1049,127 +1186,20 @@ print("Uma linha foi inserida, ID:", meucursor.lastrowid)
     Uma linha foi inserida, ID: 19
     
 
-* **7) - Confira se a ordem do cliente Osvaldo foi inserida.**
+#### **7) - Confira se a ordem do cliente Osvaldo foi inserida.**
+<a id="ancora5.8"></a>
+[voltar](#ancora).
 
 
 ```python
 query ="SELECT CONCAT(Fname, ' ',Lname) AS Cliente, idOrder AS Request,\
 orderStatus AS Status FROM clients c, orders o WHERE c.idClient = idOrderClient;"
-pd.read_sql(query,con)
+pd.read_sql(query,con);
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Cliente</th>
-      <th>Request</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Roberto Notario</td>
-      <td>1</td>
-      <td>Cancelado</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Solange Okita</td>
-      <td>2</td>
-      <td>Confirmado</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Laura Okuda</td>
-      <td>3</td>
-      <td>Em processamento</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Lucas  Okuda</td>
-      <td>4</td>
-      <td>Confirmado</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Luana Okuda</td>
-      <td>5</td>
-      <td>Cancelado</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Jeferson Silva</td>
-      <td>6</td>
-      <td>Confirmado</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Murilo Costa</td>
-      <td>7</td>
-      <td>Em processamento</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Maria Silva</td>
-      <td>8</td>
-      <td>Cancelado</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Sandar Marques</td>
-      <td>9</td>
-      <td>Em processamento</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Osvaldo Cruz</td>
-      <td>16</td>
-      <td>Em processamento</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Osvaldo Cruz</td>
-      <td>17</td>
-      <td>Em processamento</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Osvaldo Cruz</td>
-      <td>18</td>
-      <td>Em processamento</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Osvaldo Cruz</td>
-      <td>19</td>
-      <td>Em processamento</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-* **8) - Altere o status da ordem do cliente Osvaldo que possui a requisição núm:17 e 18 para 'Cancelado'.**
+#### **8) - Altere o status da ordem do cliente Osvaldo que possui a requisição núm:17 e 18 para 'Cancelado'.**
+<a id="ancora5.9"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -1185,7 +1215,9 @@ print("Ordem foi alterada com sucesso, ID:", meucursor.lastrowid)
     Ordem foi alterada com sucesso, ID: 0
     
 
-* **9) - Confira se a ordem do cliente Osvaldo foi alterada conforme solicitado.**
+#### **9) - Confira se a ordem do cliente Osvaldo foi alterada conforme solicitado.**
+<a id="ancora5.10"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -1239,7 +1271,9 @@ pd.read_sql(query,con)
 
 
 
-* **10) - Informe a quantidade de pedidos por clientes.**
+#### **10) - Informe a quantidade de pedidos por clientes.**
+<a id="ancora5.11"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -1341,7 +1375,9 @@ pd.read_sql(query,con)
 
 
 
-* **11) - Informe a quantidade de ordens com status cancelado por clientes ordenado por nome de forma descentende.**
+#### **11) - Informe a quantidade de ordens com status cancelado por clientes ordenado por nome de forma descentende.**
+<a id="ancora5.12"></a>
+[voltar](#ancora).
 
 
 ```python
@@ -1418,7 +1454,9 @@ pd.read_sql(query,con)
 
 
 
-* **12) - Informe a quantidade de produtos por categoria e por localização com avaliação maior ou igual a 4 ordenado por quantidade descendente.**
+#### **12) - Informe a quantidade de produtos por categoria e por localização com avaliação maior ou igual a 4 ordenado por quantidade descendente.**
+<a id="ancora5.13"></a>
+[voltar](#ancora).
 
 
 ```python
