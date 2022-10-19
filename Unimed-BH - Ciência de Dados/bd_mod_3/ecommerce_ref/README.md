@@ -1719,10 +1719,8 @@ FROM
 WHERE
     p.id = 1
 '''
-pd.read_sql(query,con)
+display(pd.read_sql(query,con));
 ```
-
-
 
 
 <div>
@@ -1794,7 +1792,6 @@ pd.read_sql(query,con)
   </tbody>
 </table>
 </div>
-
 
 
 
