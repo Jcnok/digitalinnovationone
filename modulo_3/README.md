@@ -93,7 +93,7 @@
 * **Pagamento – Pode ter cadastrado mais de uma forma de pagamento.**
 * **Entrega – Possuistatus e código de rastreio.**
 
-![img](https://github.com/Jcnok/digitalinnovationone/blob/main/images/e-commerce-refinado.png?raw=true)
+![img](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/ecommerce_ref/ecommerce_refinado.png?raw=true)
 
 ## Desafio 2 - Modelo de Oficina Mecânica 
 
