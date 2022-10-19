@@ -51,7 +51,22 @@
     * [INSERT INTO Vendedores](#ancora4.13)
     * [INSERT INTO Produtos_Terceiros](#ancora4.14)
     * [INSERT INTO Documentos](#ancora4.15)
-* [Entendimento do Negócio](#ancora5)
+    
+    
+* [Script SQL para consultas(Queries)](#ancora5)
+    * [Realizando a conexão com o Banco de Dados.](#ancora5.2)
+    * [1-Quantos pedidos foram feitos por cada cliente?](#ancora5.3)
+    * [2-Algum vendedor também é fornecedor?](#ancora5.4)
+    * [3-Relação de produtos fornecedores e estoques;](#ancora5.5)
+    * [4-Relação de nomes dos fornecedores e nomes dos produtos;](#ancora5.6)
+    * [5-Informe todos os clientes que realizaram compras com cartão de crédito.](#ancora5.7)
+    * [6-Qual o Nome, CNPJ/CPF, quantidade vendida, nome do produto, categoria, tamanho, valor unitario, valor total e a quantidade em estoque já descontado das vendas dos terceiros.](#ancora5.8)
+    * [7-Informe todos os pedidos, a forma de pagamento, codigo do rastreio, o status da compra e do envio seguido dos seus respectivos valores ordenados pela data do pedido.](#ancora5.9)
+    * [8-Informe  endereço, responsável, o contato, a quantidade, o nome e categoria dos produtos em estoque com avaliação maior ou igual a 4 ordenado pela quantidade do maior para o menor.](#ancora5.10)
+    * [9-Informe todos os clientes que possuem cadastro com CPF utilizando a função if;](#ancora5.11)
+    * [10-informe o total de pedidos por tipo de pagamento;](#ancora5.12)
+    * [11-Quais produtos o cliente de ordem =1 comprou?](#ancora5.13)
+    
 
 
 <a name="ancora"></a>
@@ -451,10 +466,6 @@ ENGINE = InnoDB;'''
 <a id="ancora4"></a>
 [voltar](#ancora)
 
-### INSERT INTO Clientes
-<a id="ancora4.1"></a>
-[voltar](#ancora)
-
 
 ```python
 '''-- 1 inserindo registros na tabela Clientes --
@@ -472,7 +483,7 @@ INSERT INTO `Clientes` (`Pname`, `Minit`, `Lname`, `Address`, `phone`) VALUES ('
 '''-- 11 Inserindo registros na tabela Entregas -- 
 INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('1122334455', 'Aguardando', '20');
 INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('78965412', 'Enviado', '35');
-INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('123987456', 'Em trânsito', '50');
+INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('123987456', 'Em trânsito', '30');
 INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('852369741', 'Saiu para entrega', '28');
 INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('123654852', 'Entregue', '25');'''
 ```
@@ -484,9 +495,9 @@ INSERT INTO `entregas` (`Cod`, `Status`, `ShipValue`) VALUES ('123654852', 'Entr
 
 ```python
 '''-- 3 Inserindo registros na tabela cartão de crédito --
-INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Julio C. Okuda', '123456789321456', 'Visa', '10-01-25', '1');
-INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Solange M Okita', '3579514852', 'Master', '01-02-24', '2');
-INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Solange M Okita', '3579518888', 'Visa', '01-05-25', '2');
+INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Julio C. Okuda', '123456789321456', 'Visa', '25-01-10', '1');
+INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Solange M Okita', '3579514852', 'Master', '24-01-02', '2');
+INSERT INTO `creditcards` (`Name`, `Number`, `Flag`, `ExpDate`,`fk_idClient`) VALUES ('Solange M Okita', '3579518888', 'Visa', '25-01-05', '2');
 '''
 ```
 
@@ -510,12 +521,12 @@ INSERT INTO `formas_pagamentos` (`PayType`) VALUES ('Debito');'''
 
 ```python
 '''-- 12 Inserindo registros na tabela de Pedidos --
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('2', '1', '1', '2', 'Confirmado', 'utilizou cartão master', '9590', '15-10-22', '123654789');
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '2', '3', 'Confirmado', 'Pagou com Pix a vista', '20', '10-10-22', '13131313');
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('3', '3', '2', 'Em Processamento', 'Aguardando o boleto ser processado', '3420', '14-10-22', '24242424');
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '4', '1', '1', 'Cancelado', 'Cancelou o pedido-cartão', '1400', '14-10-22', '12121212');
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('2', '1', '1', '3', 'Cancelado', 'utilizou cartão visa', '2000', '14-10-22', '12365478');
-INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '1', '1', '3', 'Confirmado', 'cartão', '20', '10-10-22', '123654');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('2', '2', '1', '2', 'Confirmado', 'utilizou cartão master', '9590', '22-10-15', '123654789');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '4', '3', 'Confirmado', 'Pagou com Pix a vista', '399', '22-10-10', '13131313');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('3', '1', '2', 'Em Processamento', 'Aguardando o boleto ser processado', '3420', '22-10-14', '24242424');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '1', '1', '1', 'Cancelado', 'Cancelou o pedido-cartão', '1400', '22-10-14', '12121212');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('2', '1', '1', '3', 'Cancelado', 'utilizou cartão visa', '2000', '22-10-14', '12365478');
+INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCreditCard`, `Status`, `Description`, `TotalValue`, `Date`, `NumberPayment`) VALUES ('1', '3', '1', '3', 'Confirmado', 'cartão', '399', '22-10-10', '123654');
 '''
 ```
 
@@ -529,7 +540,7 @@ INSERT INTO `pedidos` (`fk_idClient`, `fk_idDeliver`, `fk_idPayType`, `fk_idCred
 INSERT INTO `produtos` (`Name`, `ClassKids`, `Category`, `Size`, `Rating`, `Price`) VALUES ('Fraldas', '1', 'Vestimenta', 'P', '5', '95');
 INSERT INTO `produtos` (`Name`, `ClassKids`, `Category`, `Size`, `Rating`, `Price`) VALUES ('Monitor', '0', 'Eletrônico', '19"', '4', '2000');
 INSERT INTO `produtos` (`Name`, `ClassKids`, `Category`, `Size`, `Rating`, `Price`) VALUES ('Sofá', '0', 'Móveis', '3LUG', '3', '1400');
-INSERT INTO `produtos` (`Name`, `ClassKids`, `Category`, `Size`, `Rating`, `Price`) VALUES ('Arroz', '0', 'Alimentos', '5kg', '4', '20');'''
+INSERT INTO `produtos` (`Name`, `ClassKids`, `Category`, `Size`, `Rating`, `Price`) VALUES ('Cesta_Basica', '0', 'Alimentos', '1_fardo', '4', '399');'''
 ```
 
 
@@ -635,7 +646,7 @@ INSERT INTO `vendedores` (`SocialName`, `AbstName`, `CNPJ`, `CPF`, `Local`, `Con
 INSERT INTO `produtos_terceiros` (`fk_idSeller`, `fk_idProduct`, `Qtd`) VALUES ('1', '2', '10');
 INSERT INTO `produtos_terceiros` (`fk_idSeller`, `fk_idProduct`, `Qtd`) VALUES ('2', '3', '5');
 INSERT INTO `produtos_terceiros` (`fk_idSeller`, `fk_idProduct`, `Qtd`) VALUES ('3', '4', '15');
-INSERT INTO `produtos_terceiros` (`fk_idSeller`, `fk_idProduct`, `Qtd`) VALUES ('4', '1', '100');'''
+INSERT INTO `produtos_terceiros` (`fk_idSeller`, `fk_idProduct`, `Qtd`) VALUES ('4', '1', '50');'''
 ```
 
 ### INSERT INTO Documentos
@@ -655,4 +666,1135 @@ INSERT INTO `Documentos` (`DocNum`, `fk_idClient`) VALUES ('35795174123', '3');'
 
 ```
 
+## Respondendo as Perguntas com Queries.
+<a id="ancora5"></a>
 [voltar](#ancora)
+
+### Realizando a conexão com o Banco de Dados.
+<a id="ancora5.2"></a>
+[voltar](#ancora)
+
+
+```python
+#importação das bibliotecas para conexão 1
+import mysql.connector
+import pandas as pd
+import warnings
+warnings.filterwarnings('ignore')
+```
+
+
+```python
+# Testando a conexão, nesse caso criei um usuário sem senha para teste.
+con = mysql.connector.connect(host='localhost',database='ecommerce_refinado',user='julio',password='')
+if con.is_connected():
+    db_info = con.get_server_info()
+    print("Conectado ao servidor MySQL versão ",db_info)
+    cursor = con.cursor()
+    cursor.execute("select database();")
+    linha = cursor.fetchone()
+    print("Conectado ao banco de dados ",linha)
+if con.is_connected():
+    cursor.close()
+    con.close()
+    print("Conexão ao MySQL foi encerrada")
+```
+
+    Conectado ao servidor MySQL versão  8.0.30
+    Conectado ao banco de dados  ('ecommerce_refinado',)
+    Conexão ao MySQL foi encerrada
+    
+
+
+```python
+# Exibindo as tabelas do banco de dados.
+con = mysql.connector.connect(host='localhost',database='ecommerce_refinado',user='julio',password='')
+cursor = con.cursor()
+cursor.execute('SHOW TABLES')
+for i in cursor:
+  print(i)
+```
+
+    ('clientes',)
+    ('creditcards',)
+    ('documentos',)
+    ('entregas',)
+    ('estoques',)
+    ('formas_pagamentos',)
+    ('fornecedores',)
+    ('fornecedores_produtos',)
+    ('pedidos',)
+    ('pedidos_produtos',)
+    ('produtos',)
+    ('produtos_estoques',)
+    ('produtos_terceiros',)
+    ('vendedores',)
+    
+
+### 1-Quantos pedidos foram feitos por cada cliente?
+<a id="ancora5.3"></a>
+[voltar](#ancora)
+
+
+```python
+query ='''
+SELECT 
+    CONCAT(c.pname, ' ', c.Lname) AS Cliente,
+    COUNT(*) AS qtd_pedidos
+FROM
+    clientes c
+        JOIN
+    pedidos p ON c.idClient = p.fk_idClient
+GROUP BY c.idClient;
+'''
+pd.read_sql(query,con)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cliente</th>
+      <th>qtd_pedidos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Julio Okuda</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Solange  Okita</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lucas Yudy</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### 2-Algum vendedor também é fornecedor?
+<a id="ancora5.4"></a>
+[voltar](#ancora)
+
+
+```python
+query='''
+SELECT 
+    f.SocialName,
+    f.CNPJ
+FROM
+    fornecedores f,
+    vendedores v
+WHERE
+    f.CNPJ = v.CNPJ;
+'''
+pd.read_sql(query,con)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SocialName</th>
+      <th>CNPJ</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+
+
+### 3-Relação de produtos fornecedores e estoques;
+<a id="ancora5.5"></a>
+[voltar](#ancora)
+
+
+```python
+query='''
+SELECT 
+    f.SocialName AS 'razão social',
+    f.CNPJ,
+    f.Contact AS tel_fornedor,
+    p.Name AS nome,
+    p.ClassKids AS kids,
+    p.Category AS cat,
+    p.Size,
+    p.Price AS valor_unitario,
+    pe.Qtd AS qtd_estoque,
+    e.Name AS resposável,
+    e.Local AS endereço,
+    e.Contact AS tel_estoque
+FROM
+    fornecedores f
+        JOIN
+    fornecedores_produtos fp ON f.id = fp.fk_idSupplier
+        JOIN
+    produtos p ON fp.fk_idProduct = p.id
+        JOIN
+    produtos_estoques pe ON p.id = pe.fk_idProduct
+        JOIN
+    estoques e ON pe.fk_idStorage = e.id; 
+    '''
+pd.read_sql(query,con)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>razão social</th>
+      <th>CNPJ</th>
+      <th>tel_fornedor</th>
+      <th>nome</th>
+      <th>kids</th>
+      <th>cat</th>
+      <th>Size</th>
+      <th>valor_unitario</th>
+      <th>qtd_estoque</th>
+      <th>resposável</th>
+      <th>endereço</th>
+      <th>tel_estoque</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nihontech</td>
+      <td>123654985632569</td>
+      <td>119849849</td>
+      <td>Fraldas</td>
+      <td>1</td>
+      <td>Vestimenta</td>
+      <td>P</td>
+      <td>95.0</td>
+      <td>100</td>
+      <td>João</td>
+      <td>Rio de Janeiro - RJ</td>
+      <td>21965324123</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Nihontech</td>
+      <td>123654985632569</td>
+      <td>119849849</td>
+      <td>Sofá</td>
+      <td>0</td>
+      <td>Móveis</td>
+      <td>3LUG</td>
+      <td>1400.0</td>
+      <td>200</td>
+      <td>Rafael Silva</td>
+      <td>Salvador - BA</td>
+      <td>77956238574</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Nihontech</td>
+      <td>123654985632569</td>
+      <td>119849849</td>
+      <td>Arroz</td>
+      <td>0</td>
+      <td>Alimentos</td>
+      <td>5kg</td>
+      <td>20.0</td>
+      <td>2000</td>
+      <td>Takao K.</td>
+      <td>Curitiba - PR</td>
+      <td>41985749632</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Techbyte</td>
+      <td>123321123321122</td>
+      <td>21988787878</td>
+      <td>Monitor</td>
+      <td>0</td>
+      <td>Eletrônico</td>
+      <td>19"</td>
+      <td>2000.0</td>
+      <td>50</td>
+      <td>Laura Pausini</td>
+      <td>São Paulo - SP</td>
+      <td>11965324512</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### 4-Relação de nomes dos fornecedores e nomes dos produtos;
+<a id="ancora5.6"></a>
+[voltar](#ancora)
+
+
+```python
+query='''
+SELECT 
+    f.SocialName,
+    f.CNPJ,
+    f.Contact,
+    fp.Qtd,
+    p.Name,
+    p.ClassKids,
+    p.Category,
+    p.Size,
+    p.Rating,
+    p.Price
+FROM
+    fornecedores f
+        JOIN
+    fornecedores_produtos fp ON f.id = fp.fk_idSupplier
+        JOIN
+    produtos p ON fp.fk_idProduct = p.id;
+'''
+pd.read_sql(query,con)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SocialName</th>
+      <th>CNPJ</th>
+      <th>Contact</th>
+      <th>Qtd</th>
+      <th>Name</th>
+      <th>ClassKids</th>
+      <th>Category</th>
+      <th>Size</th>
+      <th>Rating</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nihontech</td>
+      <td>123654985632569</td>
+      <td>119849849</td>
+      <td>100</td>
+      <td>Fraldas</td>
+      <td>1</td>
+      <td>Vestimenta</td>
+      <td>P</td>
+      <td>5.0</td>
+      <td>95.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Nihontech</td>
+      <td>123654985632569</td>
+      <td>119849849</td>
+      <td>200</td>
+      <td>Sofá</td>
+      <td>0</td>
+      <td>Móveis</td>
+      <td>3LUG</td>
+      <td>3.0</td>
+      <td>1400.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Nihontech</td>
+      <td>123654985632569</td>
+      <td>119849849</td>
+      <td>2000</td>
+      <td>Arroz</td>
+      <td>0</td>
+      <td>Alimentos</td>
+      <td>5kg</td>
+      <td>4.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Techbyte</td>
+      <td>123321123321122</td>
+      <td>21988787878</td>
+      <td>50</td>
+      <td>Monitor</td>
+      <td>0</td>
+      <td>Eletrônico</td>
+      <td>19"</td>
+      <td>4.0</td>
+      <td>2000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### 5-Informe todos os clientes que realizaram compras com cartão de crédito.
+<a id="ancora5.7"></a>
+[voltar](#ancora)
+
+
+```python
+query='''
+SELECT 
+    CONCAT(cl.Pname, ' ', cl.Lname) AS cliente,
+    c.Number AS cartão,
+    c.Flag AS Bandeira,
+    p.Date AS data_pedido,
+    p.TotalValue AS total_pedido,
+    p.Status,
+    p.Description AS descrição,
+    p.NumberPayment
+FROM
+    pedidos p
+        JOIN
+    creditcards c ON p.fk_idClient = c.fk_idClient
+        AND p.fk_idCreditCard = c.id
+        JOIN
+    clientes cl ON cl.idClient = c.fk_idClient;
+'''
+pd.read_sql(query,con)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cliente</th>
+      <th>cartão</th>
+      <th>Bandeira</th>
+      <th>data_pedido</th>
+      <th>total_pedido</th>
+      <th>Status</th>
+      <th>descrição</th>
+      <th>NumberPayment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Julio Okuda</td>
+      <td>123456789321456</td>
+      <td>Visa</td>
+      <td>2022-10-14</td>
+      <td>1400.0</td>
+      <td>Cancelado</td>
+      <td>Cancelou o pedido-cartão</td>
+      <td>12121212</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Solange  Okita</td>
+      <td>3579514852</td>
+      <td>Master</td>
+      <td>2022-10-15</td>
+      <td>9590.0</td>
+      <td>Confirmado</td>
+      <td>utilizou cartão master</td>
+      <td>123654789</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Solange  Okita</td>
+      <td>3579518888</td>
+      <td>Visa</td>
+      <td>2022-10-14</td>
+      <td>2000.0</td>
+      <td>Cancelado</td>
+      <td>utilizou cartão visa</td>
+      <td>12365478</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### 6-Qual o Nome, CNPJ/CPF, quantidade vendida, nome do produto, categoria, tamanho, valor unitario, valor total e a quantidade em estoque já descontado das vendas dos terceiros.
+<a id="ancora5.8"></a>
+[voltar](#ancora)
+
+
+```python
+query= '''
+SELECT 
+    v.SocialName AS Nome,
+    v.CNPJ,
+    v.CPF,
+    pt.Qtd AS qtd_vendas,
+    p.Name AS produto,
+    p.Category AS categoria,
+    p.Size AS Tamanho,
+    p.Price AS valor_unitario,
+    pt.Qtd * p.Price AS valor_total,
+    pe.Qtd - pt.Qtd AS qtd_estoque
+FROM
+    vendedores v
+        JOIN
+    produtos_terceiros pt ON v.id = pt.fk_idSeller
+        JOIN
+    produtos p ON p.id = pt.fk_idProduct
+        JOIN
+    produtos_estoques pe ON pe.fk_idProduct = p.id; 
+'''
+pd.read_sql(query,con)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nome</th>
+      <th>CNPJ</th>
+      <th>CPF</th>
+      <th>qtd_vendas</th>
+      <th>produto</th>
+      <th>categoria</th>
+      <th>Tamanho</th>
+      <th>valor_unitario</th>
+      <th>valor_total</th>
+      <th>qtd_estoque</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Tech eletronics</td>
+      <td>963258741369852</td>
+      <td>None</td>
+      <td>10</td>
+      <td>Monitor</td>
+      <td>Eletrônico</td>
+      <td>19"</td>
+      <td>2000.0</td>
+      <td>20000.0</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Boticário</td>
+      <td>753159852951753</td>
+      <td>None</td>
+      <td>5</td>
+      <td>Sofá</td>
+      <td>Móveis</td>
+      <td>3LUG</td>
+      <td>1400.0</td>
+      <td>7000.0</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>JCNOK</td>
+      <td>None</td>
+      <td>88899966621</td>
+      <td>15</td>
+      <td>Arroz</td>
+      <td>Alimentos</td>
+      <td>5kg</td>
+      <td>20.0</td>
+      <td>300.0</td>
+      <td>1985</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Bar do zé</td>
+      <td>None</td>
+      <td>96325875362</td>
+      <td>50</td>
+      <td>Fraldas</td>
+      <td>Vestimenta</td>
+      <td>P</td>
+      <td>95.0</td>
+      <td>4750.0</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### 7-Informe todos os pedidos, a forma de pagamento, codigo do rastreio, o status da compra e do envio seguido dos seus respectivos valores ordenados pela data do pedido.
+<a id="ancora5.9"></a>
+[voltar](#ancora)
+
+
+```python
+query='''
+SELECT 
+    p.fk_idClient AS id_cliente,
+    p.Date AS data_pedido,
+    p.Status AS status_pedido,
+    p.TotalValue AS total,
+    p.NumberPayment AS num_pedido,
+    f.PayType AS forma_pagamento,
+    e.Cod AS cod_rastreio,
+    e.Status AS status_envio,
+    e.ShipValue AS frete
+FROM
+    pedidos p
+        JOIN
+    formas_pagamentos f ON p.fk_idPayType = f.id
+        JOIN
+    entregas e ON p.fk_idDeliver = e.id
+ORDER BY p.Date;
+'''
+pd.read_sql(query,con)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_cliente</th>
+      <th>data_pedido</th>
+      <th>status_pedido</th>
+      <th>total</th>
+      <th>num_pedido</th>
+      <th>forma_pagamento</th>
+      <th>cod_rastreio</th>
+      <th>status_envio</th>
+      <th>frete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2022-10-10</td>
+      <td>Confirmado</td>
+      <td>399.0</td>
+      <td>123654</td>
+      <td>Credito</td>
+      <td>123987456</td>
+      <td>Em trânsito</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2022-10-14</td>
+      <td>Confirmado</td>
+      <td>399.0</td>
+      <td>13131313</td>
+      <td>Pix</td>
+      <td>852369741</td>
+      <td>Saiu para entrega</td>
+      <td>28.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2022-10-14</td>
+      <td>Em processamento</td>
+      <td>3420.0</td>
+      <td>24242424</td>
+      <td>Boleto</td>
+      <td>1122334455</td>
+      <td>Aguardando</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2022-10-14</td>
+      <td>Cancelado</td>
+      <td>1400.0</td>
+      <td>12121212</td>
+      <td>Credito</td>
+      <td>1122334455</td>
+      <td>Aguardando</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>2022-10-14</td>
+      <td>Cancelado</td>
+      <td>2000.0</td>
+      <td>12365478</td>
+      <td>Credito</td>
+      <td>1122334455</td>
+      <td>Aguardando</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>2022-10-15</td>
+      <td>Confirmado</td>
+      <td>9590.0</td>
+      <td>123654789</td>
+      <td>Credito</td>
+      <td>78965412</td>
+      <td>Enviado</td>
+      <td>35.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### 8-Informe  endereço, responsável, o contato, a quantidade, o nome e categoria dos produtos em estoque com avaliação maior ou igual a 4 ordenado pela quantidade do maior para o menor.
+<a id="ancora5.10"></a>
+[voltar](#ancora)
+
+
+```python
+query='''
+SELECT 
+    e.Local AS endereço,
+    e.Name AS responsável,
+    e.Contact AS telefone,
+    pe.Qtd,
+    p.Name AS nome_produto,
+    p.Category AS categoria,
+    p.Rating AS avaliação
+FROM
+    estoques e
+        JOIN
+    produtos_estoques pe ON pe.fk_idStorage = e.id
+        JOIN
+    produtos p ON p.id = pe.fk_idProduct
+HAVING p.Rating >= 4
+ORDER BY pe.Qtd DESC;
+'''
+pd.read_sql(query,con)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>endereço</th>
+      <th>responsável</th>
+      <th>telefone</th>
+      <th>Qtd</th>
+      <th>nome_produto</th>
+      <th>categoria</th>
+      <th>avaliação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Curitiba - PR</td>
+      <td>Takao K.</td>
+      <td>41985749632</td>
+      <td>2000</td>
+      <td>Cesta_Basica</td>
+      <td>Alimentos</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Rio de Janeiro - RJ</td>
+      <td>João</td>
+      <td>21965324123</td>
+      <td>100</td>
+      <td>Fraldas</td>
+      <td>Vestimenta</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>São Paulo - SP</td>
+      <td>Laura Pausini</td>
+      <td>11965324512</td>
+      <td>50</td>
+      <td>Monitor</td>
+      <td>Eletrônico</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### 9-Informe todos os clientes que possuem cadastro com CPF utilizando a função if;
+<a id="ancora5.11"></a>
+[voltar](#ancora)
+
+
+```python
+query='''
+SELECT 
+    CONCAT(c.Pname, ' ', Lname) AS nome,
+    IF(d.DocType = 'CPF',
+        d.DocNum,
+        'não é PF') AS PF
+FROM
+    Documentos d,
+    Clientes c
+WHERE
+    c.idClient = d.fk_idClient;
+'''
+pd.read_sql(query,con)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome</th>
+      <th>PF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Julio Okuda</td>
+      <td>não é PF</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Solange  Okita</td>
+      <td>36985214785</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lucas Yudy</td>
+      <td>35795174123</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### 10-informe o total de pedidos por tipo de pagamento;
+<a id="ancora5.12"></a>
+[voltar](#ancora)
+
+
+```python
+query='''
+SELECT 
+    fp.Paytype AS tipo_pagamento, COUNT(*) AS qtd_pedidos
+FROM
+    pedidos p,
+    formas_pagamentos fp
+WHERE
+    fp.id = p.fk_idPayType
+GROUP BY (fp.PayType);
+'''
+pd.read_sql(query,con)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tipo_pagamento</th>
+      <th>qtd_pedidos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Credito</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Boleto</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pix</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+### 11-Quais produtos o cliente de ordem =1 comprou?
+<a id="ancora5.13"></a>
+[voltar](#ancora)
+
+
+```python
+query='''
+SELECT 
+    c.Pname AS Nome,
+    p.Date,
+    p.NumberPayment,
+    prod.Name,
+    prod.Price AS preço,
+    p.Status AS pagamento,
+    pr.Qtd AS qtd,
+    prod.Price * pr.Qtd AS total,
+    pr.Status
+FROM
+    pedidos AS p
+        JOIN
+    pedidos_produtos AS pr ON p.id = pr.fk_idOrder
+        JOIN
+    clientes c ON c.idClient = p.fk_idClient
+        JOIN
+    produtos prod ON prod.id = pr.fk_idProduct
+WHERE
+    p.id = 1
+'''
+pd.read_sql(query,con)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nome</th>
+      <th>Date</th>
+      <th>NumberPayment</th>
+      <th>Name</th>
+      <th>preço</th>
+      <th>pagamento</th>
+      <th>qtd</th>
+      <th>total</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Solange</td>
+      <td>2022-10-15</td>
+      <td>123654789</td>
+      <td>Fraldas</td>
+      <td>95.0</td>
+      <td>Confirmado</td>
+      <td>2</td>
+      <td>190.0</td>
+      <td>Disponível</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Solange</td>
+      <td>2022-10-15</td>
+      <td>123654789</td>
+      <td>Monitor</td>
+      <td>2000.0</td>
+      <td>Confirmado</td>
+      <td>4</td>
+      <td>8000.0</td>
+      <td>Disponível</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Solange</td>
+      <td>2022-10-15</td>
+      <td>123654789</td>
+      <td>Sofá</td>
+      <td>1400.0</td>
+      <td>Confirmado</td>
+      <td>1</td>
+      <td>1400.0</td>
+      <td>Disponível</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
