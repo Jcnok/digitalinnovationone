@@ -1306,11 +1306,11 @@ pd.read_sql(query,con)
       <td>None</td>
       <td>88899966621</td>
       <td>15</td>
-      <td>Arroz</td>
+      <td>Cesta_Basica</td>
       <td>Alimentos</td>
-      <td>5kg</td>
-      <td>20.0</td>
-      <td>300.0</td>
+      <td>1 fardo</td>
+      <td>399.0</td>
+      <td>5985.0</td>
       <td>1985</td>
     </tr>
     <tr>
