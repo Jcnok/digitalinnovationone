@@ -112,4 +112,4 @@
     * **Cada OS possui: n°, data de emissão, um valor, status e uma data para conclusão dos trabalhos.**
 
 
-![img](https://github.com/Jcnok/digitalinnovationone/blob/main/images/desafio2-mec%C3%A2nica.png?raw=true)
+![img](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/desafio_oficina_mecanica/oficina_mecanica.png?raw=true)
