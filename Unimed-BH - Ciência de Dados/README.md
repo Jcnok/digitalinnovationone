@@ -105,7 +105,7 @@
 	* [Desafio de projeto](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/ecommerce_ref)
 
 *  [Construa um Projeto Lógico de Banco de Dados do Zero](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/desafio_oficina_mecanica#ancora5.16)
-	* [Desafio de projeto](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/desafio_oficina_mecanica#ancora5.16)
+	* [Desafio de projeto](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/desafio_oficina_mecanica)
 
 *  Introdução ao MongoDB e Bancos de Dados NoSQL
 
