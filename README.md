@@ -18,6 +18,13 @@
 * **[Desafio: Construindo seu Primeiro Projeto Lógico de Banco de Dados -  E-Commerce Refinado](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/ecommerce_ref)**
 * **[Desafio2: Construindo um Projeto Lógico de Bando de Dados do Zero - Oficina_Mecânica](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/desafio_oficina_mecanica)**
 
+### Módulo 4 - Imersão Cloud Computer
+* **Desafio: Boas práticas com DynamoDB**
+* **Desafio: Explorando Dados Demográficos com Serviços de Big Data na AWS
+
+### Módulo 5 - Machine Learning
+* **[Desafio: Treinamento de Redes Neurais com Transfer Learning](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/ML#transfer%C3%AAncia-de-aprendizagem-para-classifica%C3%A7%C3%A3o-de-imagens)
+
 ## Ementa do bootcamp:
 
 * **43 cursos**
