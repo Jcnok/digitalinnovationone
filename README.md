@@ -15,7 +15,7 @@
 * **[Desafio: Projeto Conceitual de Banco de Dados -  E-Commerce](https://github.com/Jcnok/digitalinnovationone/tree/main/modulo_3)**
 * **[Desafio: Projeto Conceitual de Banco de Dados - Oficina Mecânica](https://github.com/Jcnok/digitalinnovationone/tree/main/modulo_3)**
 * **[Desafio: Construindo seu Primeiro Projeto Lógico de Banco de Dados -  E-Commerce](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/desafio_3_3)**
-* **[Desafio: Construindo seu Primeiro Projeto Lógico de Banco de Dados -  E-Commerce Refinado](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/ecommerce_ref)**
+* **[Desafio: Construindo seu Primeiro Projeto Lógico de Banco de Dados -  E-Commerce Refinado](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/ecommerce_ref#desafio---projeto-de-banco-de-dados-e-commerce-refinado)**
 * **[Desafio2: Construindo um Projeto Lógico de Bando de Dados do Zero - Oficina_Mecânica](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/desafio_oficina_mecanica#desafio---projeto-de-banco-de-dados-oficina-mec%C3%A2nica)**
 
 ### Módulo 4 - Imersão Cloud Computer
