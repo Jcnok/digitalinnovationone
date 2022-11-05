@@ -135,8 +135,8 @@
 
 *  Entendendo Machine Learning com Amazon SageMaker
 
-*  Treinamento de Redes Neurais com Transfer Learning
-	* Desafio de projeto
+*  [Treinamento de Redes Neurais com Transfer Learning](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/ML)
+	* [Desafio de projeto](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/ML/desafio_transfer_learning_dog_cat.ipynb)
 ## Local mais abaixo
 ## ok
 
