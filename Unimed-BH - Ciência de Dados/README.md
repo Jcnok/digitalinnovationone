@@ -114,7 +114,7 @@
 *  Primeiros Passos com AWS
 
 *  Boas práticas com DynamoDB
-	* Desafio de projeto
+	* [Desafio de projeto](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/AWS/desafio_dynamodb#desafio-dynamodb)
 
 *  Desenvolvendo Soluções Serverless na AWS
 
