@@ -3,7 +3,7 @@
 ![img](https://github.com/Jcnok/digitalinnovationone/blob/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/AWS/desafio_dynamodb/dynamo_boto3_python.jpg?raw=true)
 
 * **O Amazon DynamoDB é um serviço de banco de dados NoSQl totalmente gerenciado que fornece um desempenho rápido e previsível com escalabilidade integrada. Por ser gerenciado, trata de todo o provisionamento, instalação, configuração de hardware, replicação, correção de software e escalabilidade de cluster.**
-* **Para o projeto foram utilizados a biblioteca [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/dynamodb.html) uma sdk da aws para conexão ao dynamodb pelo jupyter notebook, utilizei também o console [aws CLI](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/getting-started-install.html), um usuário com as devidas permissões de acesso ao dynamoDB da AWS. Todo os aquivos do projeto estão disponíveis no reposistório.**
+* **Para o projeto foram utilizados a biblioteca [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/dynamodb.html) uma sdk da aws para conexão ao dynamodb pelo jupyter notebook, utilizei também o console [aws CLI](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/getting-started-install.html), um usuário com as devidas permissões de acesso ao dynamoDB da AWS. Todos os aquivos do projeto estão disponíveis no reposistório.**
 * **O objetivo do desafio é colocar em prática todo o aprendizado do curso, nesse projeto irei realizar a conexão com o dynamoDB e demonstrar como criar, inserir, realizar update, consultas e deletar uma tabela via terminal e pelo boto3.**
 
 ### **Conexão com o dynamoDB AWS.**
