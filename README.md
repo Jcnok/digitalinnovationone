@@ -19,7 +19,7 @@
 * **[Desafio2: Construindo um Projeto Lógico de Bando de Dados do Zero - Oficina_Mecânica](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/bd_mod_3/desafio_oficina_mecanica#desafio---projeto-de-banco-de-dados-oficina-mec%C3%A2nica)**
 
 ### Módulo 4 - Imersão Cloud Computer
-* **Desafio: Boas práticas com DynamoDB**
+* **[Desafio: Boas práticas com DynamoDB](https://github.com/Jcnok/digitalinnovationone/tree/main/Unimed-BH%20-%20Ci%C3%AAncia%20de%20Dados/AWS/desafio_dynamodb#desafio-dynamodb)**
 * **Desafio: Explorando Dados Demográficos com Serviços de Big Data na AWS**
 
 ### Módulo 5 - Machine Learning
