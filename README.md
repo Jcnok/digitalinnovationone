@@ -30,5 +30,5 @@
 * **43 cursos**
 * **11 desafios de projeto** 
 * **2 desafios de código**
-* **1 live**
+* **1 live**.
 
